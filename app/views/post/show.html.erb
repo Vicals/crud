@@ -16,6 +16,20 @@
     <div>
         <%= simple_format(@post.content) %>
     </div>
+    <hr>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">댓글</label><br>
+        <% @post.replies.each do |r| %>
+            Username : <%= r.content %>
+            <a href="/reply/destroy/<%= r.id %>">[삭제]</a><br>
+        <% end %>
+        <form action="/reply/create/<%= @post.id %>" method="post">
+            <div class="row" style="margin-top:10px;">
+                <textarea name="content" class="form-control col-11" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <button type="type" class="btn btn-dark col-1">댓글쓰기</button>
+            </div>
+        </form>
+    </div>
     <div style="text-align:right; margin-top:50px;">
         <a href="/post/index">
             <button type="button" class="btn btn-dark">목록으로</button>

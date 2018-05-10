@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'reply/create'
+  post 'reply/create/:id' => 'reply#create'
+
+  get 'reply/destroy'
+  get 'reply/destroy/:id' => 'reply#destroy'
+
   root 'post#index'
 
   get 'post/new'

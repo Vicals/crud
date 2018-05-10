@@ -2,10 +2,8 @@
     <h1 style="text-align:center">게시판</h1>
     <% @post.each do |p| %>
         <a href="/post/show/<%= p.id %>">
-            <div>   
-                제목 : <%= p.title %><br>
-                내용 : <%= p.content %>
-                <hr>
+            <div>
+                <%= p.title %><hr>
             </div>
         </a>
     <% end %>
